@@ -8,8 +8,10 @@ const router = express.Router();
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage, limits: { fileSize: 5 * 1024 * 1024 } });
+// get /api/my/restaurant
+router.get("/", jwtCheck, jwtParse, MyRestaurantController.getMyRestaurant);
 
-// /api/my/restaurant
+// post /api/my/restaurant
 router.post(
   "/",
   upload.single("imageFile"),
