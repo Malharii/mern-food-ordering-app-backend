@@ -5,7 +5,7 @@ import * as dotenv from "dotenv";
 import MyUserRoute from "./routes/MyUserRoute";
 import { v2 as cloudinary } from "cloudinary";
 import MyRestaurantRoute from "./routes/MyRestaurantRoute";
-
+import RestaurantRoute from "./routes/RestaurantRoute";
 if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
@@ -31,7 +31,7 @@ app.get("/health", async (req: Request, res: Response) => {
 
 app.use("/api/my/user", MyUserRoute);
 app.use("/api/my/restaurant", MyRestaurantRoute);
-
+app.use("/api/restaurant", RestaurantRoute);
 app.listen(7000, () => {
   console.log("server is running on port 7000");
 });
